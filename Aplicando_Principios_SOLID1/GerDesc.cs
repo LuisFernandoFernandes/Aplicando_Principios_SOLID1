@@ -16,18 +16,18 @@ namespace Aplicando_Principios_SOLID1
             switch (statusContaCliente)
             {
                 case StatusContaCliente.NaoRegistrado:
-                    precoAposDesconto = preco;
+                    precoAposDesconto = new ClienteNaoRegistrado().AplicarDescontoStatusConta(preco);
                     break;
                 case StatusContaCliente.ClienteComum:
-                    precoAposDesconto = (preco - (Constantes.Desconto_Cliente_Comum * preco));
+                    precoAposDesconto = new ClienteComum().AplicarDescontoStatusConta(preco);
                     precoAposDesconto = descontoFidelidade.AplicarDescontoFidelidade(precoAposDesconto, tempoDeContaEmAnos)
                      break;
                 case StatusContaCliente.ClienteEspecial:
-                    precoAposDesconto = (preco - (Constantes.Desconto_Cliente_Especial * preco));
+                    precoAposDesconto = new ClienteEspecial().AplicarDescontoStatusConta(preco);
                     precoAposDesconto = descontoFidelidade.AplicarDescontoFidelidade(precoAposDesconto, tempoDeContaEmAnos)
                      break;
                 case StatusContaCliente.ClienteVIP:
-                    precoAposDesconto = (preco - (Constantes.Desconto_Cliente_VIP * preco));
+                    precoAposDesconto = new ClienteVIP().AplicarDescontoStatusConta(preco);
                     precoAposDesconto = descontoFidelidade.AplicarDescontoFidelidade(precoAposDesconto, tempoDeContaEmAnos)
                      break;
                 default:
