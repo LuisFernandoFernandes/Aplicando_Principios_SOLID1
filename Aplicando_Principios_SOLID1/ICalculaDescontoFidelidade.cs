@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Aplicando_Principios_SOLID1
 {
-    interface ICalculaDescontoFidelidade
+    public interface ICalculaDescontoFidelidade
     {
         decimal AplicarDescontoFidelidade(decimal preco, int tempoDeContaEmAnos);
+        decimal AplicarDescontoStatusConta(decimal preco);
     }
 }
