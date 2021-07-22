@@ -1,28 +1,28 @@
 ﻿namespace Aplicando_Principios_SOLID1
 {
-    public class GerDesc
+    public class GerenciadorDeDescontos
     {
-        public decimal Calcular(decimal valor, int tipo, int anos)
+        public decimal AplicarDesconto(decimal precoProduto, int statusContaCliente, int tempoDeContaEmAnos)
         {
-            decimal resultado = 0;
-            decimal desc = (anos > 5) ? (decimal)5 / 100 : (decimal)anos / 100;
-            if (tipo == 1)
+            decimal precoAposDesconto = 0;
+            decimal descontoPorFidelidade = (tempoDeContaEmAnos > 5) ? (decimal)5 / 100 : (decimal)tempoDeContaEmAnos / 100;
+            if (statusContaCliente == 1)
             {
-                resultado = valor;
+                precoAposDesconto = precoProduto;
             }
-            else if (tipo == 2)
+            else if (statusContaCliente == 2)
             {
-                resultado = (valor - (0.1m * valor)) - desc * (valor - (0.1m * valor));
+                precoAposDesconto = (precoProduto - (0.1m * precoProduto)) - descontoPorFidelidade * (precoProduto - (0.1m * precoProduto));
             }
-            else if (tipo == 3)
+            else if (statusContaCliente == 3)
             {
-                resultado = (0.7m * valor) - desc * (0.7m * valor);
+                precoAposDesconto = (0.7m * precoProduto) - descontoPorFidelidade * (0.7m * precoProduto);
             }
-            else if (tipo == 4)
+            else if (statusContaCliente == 4)
             {
-                resultado = (valor - (0.5m * valor)) - desc * (valor - (0.5m * valor));
+                precoAposDesconto = (precoProduto - (0.5m * precoProduto)) - descontoPorFidelidade * (precoProduto - (0.5m * precoProduto));
             }
-            return resultado;
+            return precoAposDesconto;
         }
     }
 }
