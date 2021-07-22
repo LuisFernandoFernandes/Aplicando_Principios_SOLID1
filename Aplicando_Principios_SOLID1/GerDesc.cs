@@ -15,15 +15,15 @@ namespace Aplicando_Principios_SOLID1
                     precoAposDesconto = preco;
                     break;
                 case StatusContaCliente.ClienteComum:
-                    precoAposDesconto = (preco - (0.1m * preco));
+                    precoAposDesconto = (preco - (Constantes.Desconto_Cliente_Comum * preco));
                     precoAposDesconto = precoAposDesconto - (descontoPorFidelidade * precoAposDesconto);
                     break;
                 case StatusContaCliente.ClienteEspecial:
-                    precoAposDesconto = (preco - (0.3m * preco));
+                    precoAposDesconto = (preco - (Constantes.Desconto_Cliente_Especial * preco));
                     precoAposDesconto = precoAposDesconto - (descontoPorFidelidade * precoAposDesconto);
                     break;
                 case StatusContaCliente.ClienteVIP:
-                    precoAposDesconto = (preco - (0.5m * preco));
+                    precoAposDesconto = (preco - (Constantes.Desconto_Cliente_VIP * preco));
                     precoAposDesconto = precoAposDesconto - (descontoPorFidelidade * precoAposDesconto);
                     break;
                 default:
