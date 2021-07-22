@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Aplicando_Principios_SOLID1\**" />
+    <EmbeddedResource Remove="Aplicando_Principios_SOLID1\**" />
+    <None Remove="Aplicando_Principios_SOLID1\**" />
+  </ItemGroup>
+
 </Project>

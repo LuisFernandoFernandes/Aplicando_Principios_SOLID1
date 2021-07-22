@@ -5,21 +5,27 @@ namespace Aplicando_Principios_SOLID1
 {
     public class GerenciadorDeDescontos
     {
-        private readonly ICalculaDescontoStatusContaFactory descontoStatusConta;
         private readonly ICalculaDescontoFidelidade descontoFidelidade;
-        public GerenciadorDeDescontos(ICalculaDescontoStatusContaFactory _descontoStatusConta, ICalculaDescontoFidelidade _descontoFidelidade)
+        private readonly ICalculaDescontoStatusContaFactory descontoStatusConta;
+        public GerenciadorDeDescontos(ICalculaDescontoFidelidade _descontoFidelidade,
+           ICalculaDescontoStatusContaFactory _descontoStatusConta)
         {
             descontoStatusConta = _descontoStatusConta;
             descontoFidelidade = _descontoFidelidade;
+
         }
-        public decimal AplicarDesconto(decimal preco, StatusContaCliente statusContaCliente, int tempoDeContaEmAnos)
+        public decimal AplicarDesconto(decimal preco, StatusContaCliente statusContaCliente,
+           int tempoDeContaEmAnos)
         {
-            decimal precoAposDesconto = 0;
+            decimal precoDepoisDoDesconto = 0;
 
-            precoAposDesconto = descontoStatusConta.GetCalculoDescontoStatusConta(statusContaCliente).AplicarDescontoStatusConta(preco);
+            precoDepoisDoDesconto = descontoStatusConta.
+                GetCalculoDescontoStatusConta(statusContaCliente).AplicarDescontoStatusConta(preco);
 
-            precoAposDesconto = descontoFidelidade.AplicarDescontoFidelidade(precoAposDesconto, tempoDeContaEmAnos);
-            return precoAposDesconto;
+            precoDepoisDoDesconto = descontoFidelidade.
+                AplicarDescontoFidelidade(precoDepoisDoDesconto, tempoDeContaEmAnos);
+
+            return precoDepoisDoDesconto;
         }
     }
 }

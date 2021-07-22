@@ -13,5 +13,10 @@ namespace Aplicando_Principios_SOLID1
 
             return preco - (descontoPorFidelidade * preco);
         }
+
+        public decimal AplicarDescontoStatusConta(decimal preco)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -5,11 +5,13 @@ using System.Text;
 
 namespace Aplicando_Principios_SOLID1
 {
-    class CalculaDescontoStatusContaFactory : ICalculaDescontoStatusContaFactory
+      public class CalculaDescontoStatusContaFactory : ICalculaDescontoStatusContaFactory
     {
-        public ICalculaDescontoFidelidade GetCalculoDescontoStatusConta(StatusContaCliente statusContaCliente)
+        public ICalculaDescontoStatusConta
+            GetCalculoDescontoStatusConta(StatusContaCliente statusContaCliente)
         {
             ICalculaDescontoStatusConta calcular;
+
             switch (statusContaCliente)
             {
                 case StatusContaCliente.NaoRegistrado:
